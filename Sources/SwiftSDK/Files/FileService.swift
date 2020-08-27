@@ -91,8 +91,11 @@ import Foundation
                 if result is Fault {
                     errorHandler(result as! Fault)
                 }
-                else {
-                    responseHandler(result as! String)
+                else if let fileUrl = result as? String {
+                    let backendlessFile = BackendlessFile()
+                    backendlessFile.fileUrl = fileUrl.replacingOccurrences(of: "\"", with: "")
+                    responseHandler(backendlessFile)
+                   
                 }
             }
         })
@@ -106,8 +109,10 @@ import Foundation
                 if result is Fault {
                     errorHandler(result as! Fault)
                 }
-                else {
-                    responseHandler(result as! String)
+                else if let fileUrl = result as? String {
+                    let backendlessFile = BackendlessFile()
+                    backendlessFile.fileUrl = fileUrl.replacingOccurrences(of: "\"", with: "")
+                    responseHandler(backendlessFile)
                 }
             }
         })
@@ -121,8 +126,10 @@ import Foundation
                 if result is Fault {
                     errorHandler(result as! Fault)
                 }
-                else {
-                    responseHandler(result as! String)
+                else if let fileUrl = result as? String {
+                    let backendlessFile = BackendlessFile()
+                    backendlessFile.fileUrl = fileUrl.replacingOccurrences(of: "\"", with: "")
+                    responseHandler(backendlessFile)
                 }
             }
         })
